@@ -1,0 +1,9 @@
+# Notes
+FNRs are unreliable and cannot be seen as Identifier --> Create Routing Column 
+AC Registration and ac Type are reliable 
+9.3% Non-Hub Flights --> eventuell rotationanordnung
+m_onblockdt has missing values --> reconstruct 
+Some Rotational mismatches, slightly higher number for ECLGQX - looks like the rows are in the wrong order
+reason for delay can be dropped as this is filled in after the flight and has no predictive information
+Crew Group: Reencode; B2 and B are the same
+make time stamp out of dep_sched_date, dep_sched_time and arr_sched_date, arr_sched_time
