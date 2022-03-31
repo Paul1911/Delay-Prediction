@@ -2,14 +2,19 @@
 # Datasets
 ## flight_information
 
-### _*NaN Analysis*_
-- 
+### *NaN Analysis*
+- Sched Groundtime and Act Groundtime have a reappearing pattern of NaN (see .ipynb)
+--> Hypothesis 1: If Sched Groundtime is NA, Act Groundtime is also NA --> True. Act Groundtime also has more NAs than Sched Groundtime. See H3
+--> Hypothesis 2: Last flight of the day has no value for both variables
+--> Hypothesis 3: m_onblockdt NAs have values for Sched Groundtime but not for Act Groundtime (to be verified). Those could be cancelled flts
 ### *Variable Plausability Analysis*
 - FNRs are unreliable and cannot be seen as Identifier --> Create Routing Column 
 
 - AC Registration and ac Type are reliable 
 
 - 9.3% Non-Hub Flights --> eventuell rotationanordnung
+
+- Non-Hub flights should theoretically not be included in the Ground Information Dataset: "Each datapoint consists of an inbound (=arriving) flight and an outbound (=departing) flight from our hub “East Carmen)"
 
 - m_onblockdt has missing values --> reconstruct 
 
@@ -23,8 +28,16 @@
 
 - Sched Groundtime and Act Groundtime have negative values and huge positive outliers
 
+- dep_delay is completely correct
+
 
 ## ground_information
+
+- cleaning_duration has 3 values only 
+
 ### *NaN Analysis*
 
 ### *Variable Plausability Analysis*
+
+# Quicknotes
+- Why do I need the ground data dataset? 
