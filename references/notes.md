@@ -41,3 +41,6 @@
 
 # Quicknotes
 - Why do I need the ground data dataset? 
+- time of day vs delay - zusammenhang? 
+- dow vs delay - zusammenhang?
+- Check count of data observations pro route/ac type/registration
