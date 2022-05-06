@@ -1,4 +1,4 @@
-# As the import of other folders for .ipynbs does not work, we place the function file in the same folder. 
+# As the import of other folders into the notebooks folder does not work, we place the function file in the same folder. 
 
 import numpy as np
 
@@ -31,12 +31,14 @@ def create_blockdelay(df):
 
 # Rotational mismatch indicator
 def create_rotmismatch(df):
-    #df = df.sort_values(by = ['ac_registration_x', 'm_offblockdt']).reset_index(drop = True)
+    '''Takes a dataframe and adds a rotation mismatch flag if the arrival airport is not equal to the next departure airport'''
     df['rot_mismatch'] = np.where(
         df['ac_registration_x'].shift(-1).eq(df['ac_registration_x']) == True, # Where the registration is the same as the row above
-        ~df['dep_ap_sched'].shift(-1).eq(df['arr_ap_sched']), # Check whether current arr ap is the same as prev. dep ap | Tilde negates the bool value
+        ~df['dep_ap_sched'].shift(-1).eq(df['arr_ap_sched']), # Check whether current dep ap is the same as next arr. ap | Tilde negates the bool value
         False # Set false in case the registrations are not equal, as then a new ac rotation pattern follows
-        )
+    )
+    return df
+
 
 
 #*********************************************************************************************
