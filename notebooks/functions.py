@@ -8,6 +8,9 @@ import numpy as np
 def create_scheduledblocktime(df):
     df['scheduled_block_time'] = (df['arr_sched_time']-df['dep_sched_time']).dt.total_seconds()/60
 
+def create_actualblocktime(df):
+    df['actual_block_time'] = (df['m_onblockdt'] - df['m_offblockdt']).dt.total_seconds()/60
+
 # Leg column 
 def create_leg(df):
     df['leg'] = df["dep_ap_sched"] + "-" + df["arr_ap_sched"]
@@ -25,7 +28,7 @@ def create_grounddelay(df):
 
 # Block time delay in minutes
 def create_blockdelay(df):
-    df['block_delay'] = (df['block_time'] - (
+    df['block_delay'] = (df['actual_block_time'] - (
         (df['arr_sched_time']-df['dep_sched_time']).dt.total_seconds()/60) # this is just scheduled_block_time without adding the column
     )
 
@@ -47,6 +50,7 @@ def create_rotmismatch(df):
 def create_standard_columns(df):
     '''This function creates the standard new columns: scheduled block time, grounddelay, blockdelay'''
     create_scheduledblocktime(df)
+    create_actualblocktime(df)
     #create_leg(df)
     #create_route(df)
     create_grounddelay(df)
