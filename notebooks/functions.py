@@ -45,8 +45,9 @@ def create_rotmismatch(df):
 
 # standard function 
 def create_standard_columns(df):
+    '''This function creates the standard new columns: scheduled block time, grounddelay, blockdelay'''
     create_scheduledblocktime(df)
-    create_leg(df)
-    create_route(df)
+    #create_leg(df)
+    #create_route(df)
     create_grounddelay(df)
     create_blockdelay(df)
