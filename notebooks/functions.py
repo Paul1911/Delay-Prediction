@@ -42,6 +42,18 @@ def create_rotmismatch(df):
     )
     return df
 
+# Recalculate Scheduled and Actual Ground time 
+def recalc_groundtimes(df):
+    df['Act Groundtime'] = np.where(
+        (df['ac_registration_x'].shift(-1).eq(df['ac_registration_x']) == True) & (df['Act Groundtime'].isna() == False),
+        np.around((df['m_offblockdt'].shift(-1) - df['m_onblockdt']).dt.total_seconds()/60, decimals =1),
+        df['Act Groundtime']
+    )
+    df['Sched Groundtime'] = np.where(
+        (df['ac_registration_x'].shift(-1).eq(df['ac_registration_x']) == True) & (df['Sched Groundtime'].isna() == False),
+        np.around((df['dep_sched_time'].shift(-1) - df['arr_sched_time']).dt.total_seconds()/60, decimals =1),
+        df['Sched Groundtime']
+    )
 
 #*********************************************************************************************
 
