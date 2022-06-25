@@ -75,7 +75,7 @@ def change_check_after(row):
         change = 'last flt of day'
     return change
 
-def create_crewchange(df):
+def create_crewchange_after(df):
     cabin_crew = []
     cockpit_crew = []
     trash_crew = []
