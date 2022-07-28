@@ -1,7 +1,11 @@
-delay_prediction
+Landing Delay Prediction of Airline Flights
 ==============================
 
-Flight Delay Prediction of Airline Flights
+This is a project for the prediction of landing times of aircraft, which is, in its core, a supervised regression for delay prediction. I used the Cookiecutter template for overall structuring, however not leveraging all of its features. 
+
+Overall, the data is very messy and required a lot of data cleaning and feature engineering. The final RMSE for arrival delay is 6.03 minutes, archived by using a Gradient Boosted tree. 
+The notebooks and important files can be found in /notebooks. A detailed project description can also be found in the first and second workbook. 
+
 
 Project Organization
 ------------
@@ -10,9 +14,9 @@ Project Organization
     ├── Makefile           <- Makefile with commands like `make data` or `make train`
     ├── README.md          <- The top-level README for developers using this project.
     ├── data
-    │   ├── external       <- Data from third party sources.
+    │   ├── finalized      <- The finalized dat
     │   ├── interim        <- Intermediate data that has been transformed.
-    │   ├── processed      <- The final, canonical data sets for modeling.
+    │   ├── processed      <- Processed data, but not yet final. 
     │   └── raw            <- The original, immutable data dump.
     │
     ├── docs               <- A default Sphinx project; see sphinx-doc.org for details
@@ -20,8 +24,6 @@ Project Organization
     ├── models             <- Trained and serialized models, model predictions, or model summaries
     │
     ├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
-    │                         the creator's initials, and a short `-` delimited description, e.g.
-    │                         `1.0-jqp-initial-data-exploration`.
     │
     ├── references         <- Data dictionaries, manuals, and all other explanatory materials.
     │
