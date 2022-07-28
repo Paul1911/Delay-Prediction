@@ -44,9 +44,6 @@ def create_blockdelay(df):
         (df['arr_sched_time']-df['dep_sched_time']).dt.total_seconds()/60) # this is just scheduled_block_time without adding the column
     )
 
-    # block delay as arrival delay (following Hinnerks definition)
-    #df['block_delay'] = (df['m_onblockdt']-df['arr_sched_time']).dt.total_seconds()/60
-
 
 # Rotational mismatch indicator
 def create_rotmismatch(df):
@@ -219,7 +216,5 @@ def create_standard_columns(df):
     '''This function creates the standard new columns: scheduled block time, grounddelay, blockdelay'''
     create_scheduledblocktime(df)
     create_actualblocktime(df)
-    #create_leg(df)
-    #create_route(df)
     create_grounddelay(df)
     create_blockdelay(df)
