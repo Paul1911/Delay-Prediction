@@ -9,7 +9,7 @@ $$
 LandingTime_i = \left\lbrace\begin{array}{lr}
     ScheduledDeparture_i + ScheduledBlockTime_i + Delay_i & \text{for } i=1\\
     LandingTime_{i-1}+ScheduledGroundTime_i+ScheduledBlockTime_i+Delay_i & \text{for } i > 1\\
-    \end{array}\right\}
+    \end{array}\right\rbrace
 $$
 
 where $i$ is the number of the flight event. 
