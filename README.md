@@ -3,7 +3,18 @@ Landing Delay Prediction of Airline Flights
 
 This is a project for the prediction of landing times of aircraft, which is, in its core, a supervised regression for delay prediction. I used the Cookiecutter template for overall structuring, however not leveraging all of its features. 
 
-Overall, the data is very messy and required a lot of data cleaning and feature engineering. The final RMSE for arrival delay is 6.03 minutes, archived by using a Gradient Boosted tree. 
+The main idea is to predict all landing times for a given day and aircraft at the start of the day. We are provided with the schedule, so the landing time for a flight event can be broken down to
+
+$$ 
+LandingTime_i = \left\{\begin{array}{lr}
+    ScheduledDeparture_i + ScheduledBlockTime_i + Delay_i & \text{for } i=1\\
+    LandingTime_{i-1}+ScheduledGroundTime_i+ScheduledBlockTime_i+Delay_i & \text{for } i > 1\\
+    \end{array}\right\}
+$$
+
+where $i$ is the number of the flight event. 
+
+Overall, the data is very messy and required a lot of data cleaning and feature engineering. The final RMSE for arrival delay is 6.03 minutes, archived by using a Gradient Boosted tree, but the ridge regression model only performs only slightly worse with an RMSE of 6.18, so it might be preferable due to its easier explainablity. 
 The notebooks and important files can be found in /notebooks. A detailed project description can also be found in the first and second workbook. 
 
 
