@@ -6,7 +6,7 @@ This is a project for the prediction of landing times of aircraft, which is, in 
 The main idea is to predict all landing times for a given day and aircraft at the start of the day. We are provided with the schedule, so the landing time for a flight event can be broken down to
 
 $$ 
-LandingTime_i = \left\{\begin{array}{lr}
+LandingTime_i = \left\lbrace\begin{array}{lr}
     ScheduledDeparture_i + ScheduledBlockTime_i + Delay_i & \text{for } i=1\\
     LandingTime_{i-1}+ScheduledGroundTime_i+ScheduledBlockTime_i+Delay_i & \text{for } i > 1\\
     \end{array}\right\}
